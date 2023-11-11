@@ -2,8 +2,8 @@
 
 LightningFactory is a Python library designed to simplify the creation of PyTorch Lightning 
 models for various types of neural networks, such as Feed-Forward Neural Networks (FFNN), 
-Long Short-Term Memory networks (LSTM), and more. It allows users to specify custom 
-configurations or use sensible defaults for quick prototyping.
+Long Short-Term Memory networks (LSTM), and more. It follows the parameterized factory pattern
+and allows users to specify custom configurations or use sensible defaults for quick prototyping.
 
 ## Usage
 
