@@ -9,24 +9,33 @@ class StringEnum(Enum):
     def __str__(self):
         return self.value
 
+    @classmethod
+    def get_enum_from_string(cls, value):
+        """Return the enum member matching the string value, or None if no match."""
+        for name, member in cls.__members__.items():
+            if member.value == value:
+                return member
+        return None
+
 
 # Define an enum for hyperparameter keys to improve readability
+# Note: string values must match parameter names in LightningFactory
 @unique
 class Hyper(StringEnum):
-    NETWORK_TYPE = 'Network Type'
-    LEARNING_RATE = 'Learning Rate'
-    MAX_EPOCHS = 'Max Epochs'
-    BATCH_SIZE = 'Batch Size'
-    LAYERS = 'Layers'
-    LOSS_FUNCTION = 'Loss Function'
-    ACTIVATION_FUNCTION = 'Activation Function'
-    OPTIMIZER = 'Optimizer'
-    DROPOUT = 'Dropout'
-    L1_REGULARIZATION = 'L1 Regularization'
-    L2_REGULARIZATION = 'L2 Regularization'
-    WEIGHT_INITIALIZATION = 'Weight Initialization'
-    LSTM_NUMBER_OF_LAYERS = 'Number of Layers'
-    LSTM_HIDDEN_LAYER_SIZE = 'Hidden Layer Size'
+    NETWORK_TYPE = 'network_type'
+    LEARNING_RATE = 'learning_rate'
+    MAX_EPOCHS = 'max_epochs'
+    BATCH_SIZE = 'batch_size'
+    LAYERS = 'layers'
+    LOSS_FUNCTION = 'loss_function'
+    ACTIVATION_FUNCTION = 'activation_function'
+    OPTIMIZER = 'optimizer'
+    DROPOUT = 'dropout'
+    L1_REGULARIZATION = 'l1_regularization'
+    L2_REGULARIZATION = 'l2_regularization'
+    WEIGHT_INITIALIZATION = 'weight_initialization'
+    NUMBER_OF_HIDDEN_LAYERS = 'number_of_hidden_layers'
+    HIDDEN_LAYER_SIZE = 'hidden_layer_size'
 
 
 # Define an enum for optimizer keys

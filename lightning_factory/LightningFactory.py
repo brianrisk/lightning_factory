@@ -20,7 +20,6 @@ class LightningFactory:
                  optimizer: Opti = None,
                  weight_initialization: Wi = None
                  ):
-
         self.defaults = {
             Hyper.LAYERS: layers if layers else None,
             Hyper.LEARNING_RATE: learning_rate if learning_rate else 0.001,
@@ -35,9 +34,13 @@ class LightningFactory:
             Hyper.WEIGHT_INITIALIZATION: weight_initialization if weight_initialization else Wi.XAVIER_UNIFORM
         }
 
-    def merge_parameters_with_default(self, **kwargs):
+    def merge_parameters_with_default(self, provided_params):
         """ Override defaults with any provided arguments """
-        params = {**self.defaults, **kwargs}
+        # Create a dictionary of enums for the provided arguments
+        enum_params = {Hyper.get_enum_from_string(k): v for k, v in provided_params.items()}
+        params = {**self.defaults, **enum_params}
+        # string_params = {str(k): str(v) for k, v in params.items()}
+        # print(string_params)
         return params
 
     def ffnn(
@@ -55,7 +58,7 @@ class LightningFactory:
         # Create a dictionary of the provided arguments, excluding 'None' values
         provided_params = {k: v for k, v in locals().items() if v is not None and k != 'self'}
         # Merge provided parameters with defaults
-        params = self.merge_parameters_with_default(**provided_params)
+        params = self.merge_parameters_with_default(provided_params)
 
         # Check if layers is None and raise an exception if it is
         if params[Hyper.LAYERS] is None:

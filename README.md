@@ -1,8 +1,7 @@
 # LightningFactory
 
 LightningFactory is a Python library designed to simplify the creation of PyTorch Lightning 
-models for various types of neural networks, such as Feed-Forward Neural Networks (FFNN), 
-Long Short-Term Memory networks (LSTM), and more. It follows the parameterized factory pattern
+models for various types of neural networks. It follows the parameterized factory pattern
 and allows users to specify custom configurations or use sensible defaults for quick prototyping.
 
 ## Usage
@@ -19,25 +18,27 @@ from lightning_factory import LightningFactory
 lf = LightningFactory()
 model = lf.ffnn(layers=[5, 3, 3, 1])
 ```
+The `LightningFactory` class uses the following defaults when making a class:
+```python
+default = {
+    'layers': None,
+    'learning_rate': 0.001,
+    'max_epochs': 8,
+    'batch_size': 64,
+    'loss_function': 'BCE',
+    'activation_function': 'ReLU',
+    'optimizer': 'Adam',
+    'dropout': 0,
+    'l1_regularization': 0,
+    'l2_regularization': 0,
+    'weight_initialization': 'xavier_uniform'
+}
+```
 
-## Features
+Set default parameters when constructing the factory:
+```python
+from lightning_factory import LightningFactory
+from lightning_factory import LossFunction
 
-- Easy instantiation of FFNN models with customizable layers and parameters.
-- Sensible default parameters for quick setup.
-- Extendable to various other neural network architectures.
-- Parameter validation to ensure necessary configurations are provided.
-
-
-## Parameters
-
-### `LightningFactory` Initialization Parameters
-
-- `layers` (list of int): Specify the number of neurons in each layer.
-- `learning_rate` (float): The learning rate for the optimizer.
-- `max_epochs` (int): The maximum number of epochs for training.
-- `batch_size` (int): The batch size for training.
-- `loss_function` (Lf): The loss function to be used.
-- `activation_function` (Af): The activation function for the neurons.
-- `optimizer` (Opti): The optimizer for training.
-- `weight_initialization` (Wi): The method for weight initialization.
-
+lf = LightningFactory(loss_function=LossFunction.MSE)
+```
