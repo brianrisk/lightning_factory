@@ -1,3 +1,7 @@
+<center>
+<img src="https://d.at/static/dat/images/lightning_factory-logo.png" width="128" height="128">
+</center>
+
 # LightningFactory
 
 LightningFactory is a Python library designed to simplify the creation of PyTorch Lightning 
