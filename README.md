@@ -1,12 +1,12 @@
-<center>
-<img src="https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning_factory-logo.png?raw=true" width="128" height="128">
-</center>
+
+![Lightning Factory](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-social-preview.jpg?raw=true)
+
 
 # LightningFactory
 
 LightningFactory is a Python library designed to simplify the creation of PyTorch Lightning 
 models for various types of neural networks. It follows the parameterized factory pattern
-and allows users to specify custom configurations or use sensible defaults for quick prototyping.
+and allows users to specify custom configurations or use common defaults for quick prototyping.
 
 ## Usage
 
