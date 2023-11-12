@@ -30,11 +30,15 @@ Set default parameters when constructing the factory:
 ```python
 from lightning_factory import LightningFactory
 from lightning_factory import LossFunction
+from lightning_factory import ActivationFunction
 
 lf = LightningFactory(
     loss_function=LossFunction.MSE,
-    batch_size=32
+    batch_size=32,
+    activation_function=ActivationFunction.Softplus
 )
+model1 = lf.ffnn(layers=[5,3,3,1])
+model2 = lf.ffnn(layers=[5,8,4,2,1], activation_function=ActivationFunction.Tanh)
 ```
 
 The `LightningFactory` class uses the following defaults when making a class:
