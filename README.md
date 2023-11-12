@@ -26,6 +26,14 @@ Easily define the layer structure:
 
 ![layers example](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lf-layers-example.jpg?raw=true)
 
+Set default parameters when constructing the factory:
+```python
+from lightning_factory import LightningFactory
+from lightning_factory import LossFunction
+
+lf = LightningFactory(loss_function=LossFunction.MSE)
+```
+
 The `LightningFactory` class uses the following defaults when making a class:
 ```python
 default = {
@@ -41,12 +49,4 @@ default = {
     'l2_regularization': 0,
     'weight_initialization': 'xavier_uniform'
 }
-```
-
-Set default parameters when constructing the factory:
-```python
-from lightning_factory import LightningFactory
-from lightning_factory import LossFunction
-
-lf = LightningFactory(loss_function=LossFunction.MSE)
 ```
