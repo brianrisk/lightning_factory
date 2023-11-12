@@ -31,7 +31,10 @@ Set default parameters when constructing the factory:
 from lightning_factory import LightningFactory
 from lightning_factory import LossFunction
 
-lf = LightningFactory(loss_function=LossFunction.MSE)
+lf = LightningFactory(
+    loss_function=LossFunction.MSE,
+    batch_size=32
+)
 ```
 
 The `LightningFactory` class uses the following defaults when making a class:
