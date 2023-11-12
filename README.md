@@ -1,5 +1,5 @@
 <center>
-<img src="https://d.at/static/dat/images/lightning_factory-logo.png" width="128" height="128">
+<img src="https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning_factory-logo.png?raw=true" width="128" height="128">
 </center>
 
 # LightningFactory
@@ -22,6 +22,10 @@ from lightning_factory import LightningFactory
 lf = LightningFactory()
 model = lf.ffnn(layers=[5, 3, 3, 1])
 ```
+Easily define the layer structure:
+
+![layers example](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lf-layers-example.jpg?raw=true)
+
 The `LightningFactory` class uses the following defaults when making a class:
 ```python
 default = {
