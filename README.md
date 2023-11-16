@@ -1,5 +1,5 @@
 
-![Lightning Factory](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-social-preview.jpg?raw=true)
+![Lightning Factory](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-social-preview-dark.jpg?raw=true)
 
 
 # LightningFactory
