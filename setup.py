@@ -1,13 +1,8 @@
 from setuptools import setup, find_packages
 
-
 # Read the contents of your requirements.txt file
 with open('requirements.txt') as f:
     required = f.read().splitlines()
-
-# Read the contents of your LICENSE file
-with open('LICENSE.txt', encoding='utf-8') as f:
-    license_text = f.read()
 
 setup(
     name='lightning_factory',
@@ -16,7 +11,7 @@ setup(
     author_email='geneffects@gmail.com',
     packages=find_packages(),  # This will automatically find packages in the directory
     url='https://d.at/ligntning_factory/',
-    license=license_text,
+    license='Apache License 2.0',  # Apache License as specified in requirements
     description='Quickly, with very little code, create PyTorch Lightning models',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',  # If your README is in markdown
@@ -35,13 +30,6 @@ setup(
         'Programming Language :: Python :: 3.9',
         "Operating System :: OS Independent",
     ],
-    # Include package data specified in MANIFEST.in in the package when it's created
     include_package_data=True,
-    # If you have any scripts or executables that you want to be installed, specify them here
     scripts=[],
-    # If you have any package data to include in your package, specify them here
-    package_data={
-        # And any package contains (text files, subdirectories, etc.),
-        # you can include them using the package_data keyword.
-    },
 )
