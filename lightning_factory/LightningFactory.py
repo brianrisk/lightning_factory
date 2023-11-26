@@ -39,8 +39,6 @@ class LightningFactory:
         # Create a dictionary of enums for the provided arguments
         enum_params = {Hyper.get_enum_from_string(k): v for k, v in provided_params.items()}
         params = {**self.defaults, **enum_params}
-        # string_params = {str(k): str(v) for k, v in params.items()}
-        # print(string_params)
         return params
 
     def ffnn(

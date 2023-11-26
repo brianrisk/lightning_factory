@@ -23,8 +23,8 @@ class TestLightningFactory(unittest.TestCase):
     def test_merge_parameters_with_default(self):
         """ Test that provided parameters override defaults. """
         lf = LightningFactory()
-        custom_params = {Hyper.LEARNING_RATE: 0.02, Hyper.MAX_EPOCHS: 10}
-        merged_params = lf.merge_parameters_with_default(**custom_params)
+        custom_params = {str(Hyper.LEARNING_RATE): 0.02, str(Hyper.MAX_EPOCHS): 10}
+        merged_params = lf.merge_parameters_with_default(custom_params)
         self.assertEqual(merged_params[Hyper.LEARNING_RATE], 0.02)
         self.assertEqual(merged_params[Hyper.MAX_EPOCHS], 10)
 

@@ -57,3 +57,20 @@ default = {
     'weight_initialization': 'xavier_uniform'
 }
 ```
+
+## Testing
+
+Assessing unit test coverage:
+```bash
+coverage run -m unittest discover
+```
+
+To view the coverage report, please generate the report using the command below and you can then view the output in your terminal or as an HTML page:
+
+```shell
+coverage report
+coverage html
+```
+
+After running the above commands, an HTML report will be generated in the `coverage_html_report` directory. 
+Open `index.html` from that directory in your web browser to see the detailed coverage report.
