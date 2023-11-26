@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = lightning_factory
+
+[report]
+show_missing = True
+
+[html]
+directory = coverage_html_report
