@@ -17,9 +17,8 @@ pip install lightning_factory
 To create a feed-forward neural network model:
 
 ```python
-from lightning_factory import LightningFactory
+import lightning_factory as lf
 
-lf = LightningFactory()
 model = lf.ffnn(layers=[5, 3, 3, 1])
 ```
 Easily define the layer structure:
