@@ -11,7 +11,7 @@ from lightning_factory.enums import (
 )
 
 
-def get_ffnn(params):
+def create_ffnn(params):
     """Returns a FFNN (Feed Forward Neural Network) class based on a set of hyperparameters."""
 
     class SimpleNN(L.LightningModule):

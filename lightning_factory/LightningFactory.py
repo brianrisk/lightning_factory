@@ -1,4 +1,4 @@
-from lightning_factory.get_ffnn import get_ffnn
+from lightning_factory.get_ffnn import create_ffnn
 from lightning_factory.enums import (
     Hyper,
     WeightInit as Wi,
@@ -10,32 +10,30 @@ from lightning_factory.enums import (
 
 class LightningFactory:
 
-    def __init__(self,
-                 layers: [int] = None,
-                 learning_rate: float = None,
-                 max_epochs: int = None,
-                 batch_size: int = None,
-                 loss_function: Lf = None,
-                 activation_function: Af = None,
-                 optimizer: Opti = None,
-                 weight_initialization: Wi = None
-                 ):
+    def __init__(self, **kwargs):
+        # Default parameters
         self.defaults = {
-            Hyper.LAYERS: layers if layers else None,
-            Hyper.LEARNING_RATE: learning_rate if learning_rate else 0.001,
-            Hyper.MAX_EPOCHS: max_epochs if max_epochs else 8,
-            Hyper.BATCH_SIZE: batch_size if batch_size else 64,
-            Hyper.LOSS_FUNCTION: loss_function if loss_function else Lf.BCE,
-            Hyper.ACTIVATION_FUNCTION: activation_function if activation_function else Af.ReLU,
-            Hyper.OPTIMIZER: optimizer if optimizer else Opti.ADAM,
+            Hyper.LAYERS: None,
+            Hyper.LEARNING_RATE: 0.001,
+            Hyper.MAX_EPOCHS: 8,
+            Hyper.BATCH_SIZE: 64,
+            Hyper.LOSS_FUNCTION: Lf.BCE,
+            Hyper.ACTIVATION_FUNCTION: Af.ReLU,
+            Hyper.OPTIMIZER: Opti.ADAM,
             Hyper.DROPOUT: 0,
             Hyper.L1_REGULARIZATION: 0,
             Hyper.L2_REGULARIZATION: 0,
-            Hyper.WEIGHT_INITIALIZATION: weight_initialization if weight_initialization else Wi.XAVIER_UNIFORM
+            Hyper.WEIGHT_INITIALIZATION: Wi.XAVIER_UNIFORM
         }
+
+        # Merge provided parameters with defaults
+        self.defaults = self.merge_parameters_with_default(kwargs)
 
     def merge_parameters_with_default(self, provided_params):
         """ Override defaults with any provided arguments """
+        if provided_params is None or len(provided_params) == 0:
+            return self.defaults
+
         # Create a dictionary of enums for the provided arguments
         enum_params = {Hyper.get_enum_from_string(k): v for k, v in provided_params.items()}
         params = {**self.defaults, **enum_params}
@@ -62,5 +60,4 @@ class LightningFactory:
         if params[Hyper.LAYERS] is None:
             raise ValueError("The 'layers' parameter is required but was not provided.")
 
-        return get_ffnn(params)
-
+        return create_ffnn(params)

@@ -5,5 +5,5 @@ from lightning_factory.enums import (
     LossFunction,
     ActivationFunction
 )
-from lightning_factory import get_ffnn
-from lightning_factory.LightningFactory import LightningFactory
+from .LightningFactory import LightningFactory
+from .functions import *
