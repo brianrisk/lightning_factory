@@ -69,17 +69,7 @@ default = {
 | lightning\_factory/functions.py        |        4 |        2 |        0 |        0 |     50% |       6-7 |
 |                              **TOTAL** |  **187** |   **31** |   **40** |    **0** | **80%** |           |
 
-Assessing unit test coverage:
-```bash
-coverage run -m unittest discover
-```
-
-To view the coverage report, please generate the report using the command below and you can then view the output in your terminal or as an HTML page:
-
+To run a coverage report
 ```shell
-coverage report
-coverage html
+coverage report --format=markdown
 ```
-
-After running the above commands, an HTML report will be generated in the `coverage_html_report` directory. 
-Open `index.html` from that directory in your web browser to see the detailed coverage report.
