@@ -8,7 +8,7 @@ setup(
     name='lightning_factory',
     version='0.1.0',  # Start with a small version number for a new package
     author='Brian Risk',
-    author_email='geneffects@gmail.com',
+    author_email='brian@d.at',
     packages=find_packages(),  # This will automatically find packages in the directory
     url='https://d.at/ligntning_factory/',
     license='Apache License 2.0',  # Apache License as specified in requirements
