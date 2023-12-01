@@ -1,4 +1,6 @@
 venv
 .idea
+build
 .coverage
 __pycache__
+lightning_factory.egg-info
