@@ -1,4 +1,4 @@
-from lightning_factory.get_ffnn import create_ffnn
+from lightning_factory.create_ffnn import create_ffnn
 from lightning_factory.enums import (
     Hyper,
     WeightInit as Wi,
