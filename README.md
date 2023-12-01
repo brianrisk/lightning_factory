@@ -58,7 +58,16 @@ default = {
 }
 ```
 
-## Testing
+## Testing Coverage
+
+| Name                                   |    Stmts |     Miss |   Branch |   BrPart |   Cover |   Missing |
+|--------------------------------------- | -------: | -------: | -------: | -------: | ------: | --------: |
+| lightning\_factory/LightningFactory.py |       18 |        0 |        8 |        0 |    100% |           |
+| lightning\_factory/\_\_init\_\_.py     |        3 |        0 |        0 |        0 |    100% |           |
+| lightning\_factory/create\_ffnn.py     |       41 |       29 |       14 |        0 |     22% |19-30, 34-36, 40-46, 50-59, 63-71 |
+| lightning\_factory/enums.py            |      121 |        0 |       18 |        0 |    100% |           |
+| lightning\_factory/functions.py        |        4 |        2 |        0 |        0 |     50% |       6-7 |
+|                              **TOTAL** |  **187** |   **31** |   **40** |    **0** | **80%** |           |
 
 Assessing unit test coverage:
 ```bash
