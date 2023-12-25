@@ -8,6 +8,9 @@ Lightning Factory is a Python library designed to simplify the creation of PyTor
 models for various types of neural networks. It follows the parameterized factory pattern
 and allows users to specify custom configurations or use common defaults for quick prototyping.
 
+### History
+This code is born from the hyper-parameter tuning portion of [Stock Predictin Neural Netowrk and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
+
 ## Usage
 
 ```bash
