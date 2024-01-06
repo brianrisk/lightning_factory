@@ -4,6 +4,7 @@
 
 # Lightning Factory
 
+PyTorch Lightning is great, but model building can be a bit...verbose.  
 Lightning Factory is a Python library designed to simplify the creation of PyTorch Lightning 
 models for various types of neural networks. It follows the parameterized factory pattern
 and allows users to specify custom configurations or use common defaults for quick prototyping.
@@ -41,6 +42,33 @@ lf = LightningFactory(
 )
 model1 = lf.ffnn(layers=[5,3,3,1])
 model2 = lf.ffnn(layers=[5,8,4,2,1], activation_function=ActivationFunction.Tanh)
+```
+
+## Full example of building, training, testing and predicting
+```python
+import lightning_factory as lf
+from lightning_factory import d_at
+
+# Loading stock data built for NNs by D.AT
+# download sample data at: https://d.at/example-data
+d_at.load_data(
+    'data/train.csv', # Training data
+    'data/test.csv',  # Data time-separated from training; used to get precision, accuracy, etc
+    'data/latest.csv' # The most recent data.  The model will be predicting the labels
+)
+
+# creating our model
+model = lf.ffnn(layers=[30, 3, 3, 1])
+
+# training with our model
+d_at.train(model)
+
+# precision, accuracy, p-value of precision, confusion matrix
+d_at.print_statistics()
+
+# stocks ordered by which are most likely to have a `true` label
+d_at.print_predictions()
+
 ```
 
 The `LightningFactory` class uses the following defaults when making a class:
