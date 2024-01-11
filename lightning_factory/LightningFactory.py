@@ -29,6 +29,9 @@ class LightningFactory:
         # Merge provided parameters with defaults
         self.defaults = self.merge_parameters_with_default(kwargs)
 
+    def get(self, hyper: Hyper):
+        return self.defaults[hyper]
+
     def merge_parameters_with_default(self, provided_params):
         """ Override defaults with any provided arguments """
         if provided_params is None or len(provided_params) == 0:

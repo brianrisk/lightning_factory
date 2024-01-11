@@ -12,17 +12,19 @@ from lightning_factory.enums import (
 
 
 def create_ffnn(params):
-    """Returns a FFNN (Feed Forward Neural Network) class based on a set of hyperparameters."""
+    """
+    Returns a FFNN (Feed Forward Neural Network) object based on a set of hyperparameters.
+    """
 
     class SimpleNN(L.LightningModule):
         def __init__(self):
             super().__init__()
 
-            # Construct all layer sizes
-            all_sizes = params[Hyper.HIDDEN_LAYERS]
+            # Construct all layers
+            layer_sizes = params[Hyper.LAYERS]
             self.layers = nn.ModuleList([
-                nn.Linear(all_sizes[i], all_sizes[i + 1])
-                for i in range(len(all_sizes) - 1)
+                nn.Linear(layer_sizes[i], layer_sizes[i + 1])
+                for i in range(len(layer_sizes) - 1)
             ])
 
             self.activation_function = ACTIVATION_FUNCTIONS[params[Hyper.ACTIVATION_FUNCTION]]()
@@ -70,4 +72,4 @@ def create_ffnn(params):
 
             return optimizer
 
-    return SimpleNN
+    return SimpleNN()

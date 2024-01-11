@@ -5,3 +5,6 @@ build
 __pycache__
 lightning_factory.egg-info
 dist
+examples/data
+examples/checkpoints
+.DS_Store

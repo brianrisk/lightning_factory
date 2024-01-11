@@ -4,7 +4,10 @@ from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from torch.utils.data import TensorDataset
 from scipy.stats import fisher_exact
+from torch.utils.data import DataLoader
 import pytorch_lightning as L
+
+from lightning_factory import LightningFactory, Hyper
 
 
 def calculate_precision_p_value(tp: int, fp: int, fn: int, tn: int):
@@ -17,10 +20,10 @@ def calculate_precision_p_value(tp: int, fp: int, fn: int, tn: int):
 
 
 class DataAnalysisTool:
-    '''
+    """
     A Utility class to work with stock data from D.AT
     Loads, scales, trains, runs predictions, prints statistics
-    '''
+    """
     def __init__(self):
         # Model
         self.model = None
@@ -54,13 +57,12 @@ class DataAnalysisTool:
         self.tickers = latest_data.iloc[:, 0].values
         self.x_vector_latest = scaler.transform(latest_data.iloc[:, 1:].values)
 
-    def train(self, model):
+    def train(self, model, lf: LightningFactory = LightningFactory()):
         # Train the model using the loaded data
         self.model = model
         # Initializing a trainer and training the model
-        train_loader = DataLoader(train_dataset, batch_size=params[Hyper.BATCH_SIZE])
-        model = model_class()
-        trainer = L.Trainer(max_epochs=params[Hyper.MAX_EPOCHS], logger=False)
+        train_loader = DataLoader(self.train_dataset, batch_size=lf.get(Hyper.BATCH_SIZE))
+        trainer = L.Trainer(max_epochs=lf.get(Hyper.MAX_EPOCHS), logger=False)
         trainer.fit(model, train_loader)
 
         model.eval()
@@ -72,7 +74,7 @@ class DataAnalysisTool:
             predictions = self.model(torch.tensor(self.x_vector_test_scaled)).numpy()
 
         # Binarizing predictions
-        predictions_bin = (predictions > 0.6).astype(int)
+        predictions_bin = (predictions > 0.5).astype(int)
 
         # Statistical analysis
         tn, fp, fn, tp = confusion_matrix(self.y_vector_test, predictions_bin).ravel()
@@ -95,6 +97,7 @@ class DataAnalysisTool:
     def print_predictions(self):
         scores = self.model(torch.Tensor(self.x_vector_latest)).detach().numpy()
         top_5_indices = scores.flatten().argsort()[-5:][::-1]
+        print("Stocks with highest score for positive outcome:")
         for idx in top_5_indices:
             print(f'{self.tickers[idx]}: {scores[idx][0] * 100:.2f}%')
 
