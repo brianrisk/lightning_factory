@@ -9,8 +9,11 @@ Lightning Factory is a Python library designed to simplify the creation of PyTor
 models for various types of neural networks. It follows the parameterized factory pattern
 and allows users to specify custom configurations or use common defaults for quick prototyping.
 
-### History
-This code is born from the hyper-parameter tuning portion of [Stock Predictin Neural Netowrk and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
+### Future Work
+This library is in early stages.  Future work involves adding factory methods for LSTMs, RNNs and more.  
+
+If you have ideas for this, please fork and contribute!
+
 
 ## Usage
 
@@ -35,6 +38,7 @@ from lightning_factory import LightningFactory
 from lightning_factory import LossFunction
 from lightning_factory import ActivationFunction
 
+# setting the defaults.  These values will always be used unless otherwise specified
 lf = LightningFactory(
     loss_function=LossFunction.MSE,
     batch_size=32,
@@ -52,9 +56,9 @@ from lightning_factory import d_at
 # Loading stock data built for NNs by D.AT
 # download sample data at: https://d.at/example-data
 d_at.load_data(
-    'data/train.csv', # Training data
-    'data/test.csv',  # Data time-separated from training; used to get precision, accuracy, etc
-    'data/latest.csv' # The most recent data.  The model will be predicting the labels
+    'data/train.csv',  # Training data
+    'data/test.csv',   # Data time-separated from training; used to get precision, accuracy, etc
+    'data/latest.csv'  # The most recent data.  The model will be predicting the labels
 )
 
 # creating our model
@@ -103,3 +107,8 @@ To run a coverage report
 ```shell
 coverage report --format=markdown
 ```
+
+
+### History
+This code is born from the hyper-parameter tuning portion of [Stock Predictin Neural Netowrk and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
+

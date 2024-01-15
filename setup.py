@@ -6,11 +6,11 @@ with open('requirements.txt') as f:
 
 setup(
     name='lightning_factory',
-    version='0.1.1',
+    version='0.1.2',
     author='Brian Risk',
     author_email='brian@d.at',
     packages=find_packages(),  # This will automatically find packages in the directory
-    url='https://d.at/ligntning_factory/',
+    url='https://github.com/brianrisk/lightning_factory',
     license='Apache License 2.0',  # Apache License as specified in requirements
     description='Quickly, with very little code, create PyTorch Lightning models',
     long_description=open('README.md').read(),
