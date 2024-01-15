@@ -1,6 +1,5 @@
 import unittest
-import sys
-sys.path.append('/Users/brianrisk/Dropbox/Programs/lightning_factory')
+
 from lightning_factory.enums import Hyper
 from lightning_factory.LightningFactory import LightningFactory
 
