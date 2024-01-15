@@ -16,4 +16,4 @@ class TestCreateFFNN(unittest.TestCase):
         """FFNN should initialize correctly with a proper layer list."""
         layers = [10, 5, 2]
         model = self.lf.ffnn(layers=layers)
-        self.assertTrue(issubclass(model, pl.LightningModule), 'Model should be subclass of LightningModule')
+        self.assertTrue(isinstance(model, pl.LightningModule), 'Generated model should be an instance of LightningModule')

@@ -39,7 +39,7 @@ class TestLightningFactory(unittest.TestCase):
         lf = LightningFactory()
         model = lf.ffnn(layers=[5, 3, 1])
         # Check that the model is a subclass of LightningModule
-        self.assertTrue(issubclass(model, L.LightningModule))
+        self.assertTrue(isinstance(model, L.LightningModule))
 
 if __name__ == '__main__':
     unittest.main()
