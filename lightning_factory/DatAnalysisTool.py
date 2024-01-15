@@ -68,6 +68,7 @@ class DataAnalysisTool:
         model.eval()
 
     def print_statistics(self):
+        print("printing statistics...")
         # Making predictions on test data
         self.model.eval()
         with torch.no_grad():
