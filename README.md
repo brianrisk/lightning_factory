@@ -47,8 +47,7 @@ model2 = lf.ffnn(layers=[5,8,4,2,1], activation_function=ActivationFunction.Tanh
 
 ### Video tutorial
 
-[![Lightning Factory Video Tutorial]](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-video-thumbnail?raw=true)](https://youtu.be/7zqJZopgQSs?si=rxJkMyNF0o7VITd5)
-
+[![Lightning Factory Video Tutorial](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-video-thumbnail.jpg?raw=true)](https://youtu.be/7zqJZopgQSs?si=rxJkMyNF0o7VITd5)
 
 ### Full Example Code
 ```python
