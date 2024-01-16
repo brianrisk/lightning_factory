@@ -111,7 +111,7 @@ coverage report --format=markdown
 
 
 ### History
-This code is born from the hyper-parameter tuning portion of [Stock Predictin Neural Netowrk and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
+This code is born from the hyper-parameter tuning portion of [Stock Prediction Neural Network and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
 
 
 ### Future Work
