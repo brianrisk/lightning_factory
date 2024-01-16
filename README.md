@@ -9,11 +9,6 @@ Lightning Factory is a Python library designed to simplify the creation of PyTor
 models for various types of neural networks. It follows the parameterized factory pattern
 and allows users to specify custom configurations or use common defaults for quick prototyping.
 
-### Future Work
-This library is in early stages.  Future work involves adding factory methods for LSTMs, RNNs and more.  
-
-If you have ideas for this, please fork and contribute!
-
 
 ## Usage
 
@@ -49,6 +44,13 @@ model2 = lf.ffnn(layers=[5,8,4,2,1], activation_function=ActivationFunction.Tanh
 ```
 
 ## Full example of building, training, testing and predicting
+
+### Video tutorial
+
+[![Lightning Factory Video Tutorial]](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-video-thumbnail?raw=true)](https://youtu.be/7zqJZopgQSs?si=rxJkMyNF0o7VITd5)
+
+
+### Full Example Code
 ```python
 import lightning_factory as lf
 from lightning_factory import d_at
@@ -112,3 +114,8 @@ coverage report --format=markdown
 ### History
 This code is born from the hyper-parameter tuning portion of [Stock Predictin Neural Netowrk and Machine Learning Examples](https://github.com/D-dot-AT/Stock-Prediction-Neural-Network-and-Machine-Learning-Examples)
 
+
+### Future Work
+This library is in early stages.  Future work involves adding factory methods for LSTMs, RNNs and more.  
+
+If you have ideas for this, please fork and contribute!
