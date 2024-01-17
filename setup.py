@@ -6,7 +6,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='lightning_factory',
-    version='0.1.2',
+    version='0.1.3',
     author='Brian Risk',
     author_email='brian@d.at',
     packages=find_packages(),  # This will automatically find packages in the directory

@@ -46,6 +46,7 @@ model2 = lf.ffnn(layers=[5,8,4,2,1], activation_function=ActivationFunction.Tanh
 ## Full example of building, training, testing and predicting
 
 ### Video tutorial
+Example stock data for training used in the tutorial: [Download](https://d.at/example-data)
 
 [![Lightning Factory Video Tutorial](https://raw.githubusercontent.com/brianrisk/lightning_factory/master/images/lightning-factory-video-thumbnail.jpg?raw=true)](https://youtu.be/7zqJZopgQSs?si=rxJkMyNF0o7VITd5)
 
